@@ -22,6 +22,6 @@ const ProductsSection: React.FC<IProductsSection> = props => {
     </Section>
   );
 };
-c;
+
 
 export default ProductsSection;

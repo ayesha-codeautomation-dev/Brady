@@ -45,14 +45,14 @@ const ProductsGrid = ({
   const hasQuotes = sanityCollectionData?.quotes?.length > 0;
   const layoutType = sanityCollectionData?.layout || 'fluidAndGrid';
 
-  const [layout, setLayout] = useState<LayoutOption>('fluid');
+  const layout: LayoutOption = 'grid';
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const numVisibleProducts = shopifyCollectionData?.products?.edges?.length || 0;
 
   // Scroll to top of grid after fetching new products or changing layout
-  useScrollToGridTop({ shopifyCollectionData, layout, gridId: 'bl-collection-grid' });
+  useScrollToGridTop({ shopifyCollectionData, gridId: 'bl-collection-grid' });
 
   // When the user clicks the load more button, increment the page number in the URL
   const nextPage = () => {
@@ -62,16 +62,7 @@ const ProductsGrid = ({
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  const layoutVariant = useMemo(() => {
-    if (layoutType === 'list') {
-      return 'list';
-    } else if (layoutType === 'fluidAndGrid' && layout === 'grid') {
-      return 'grid';
-    } else if (layoutType === 'fluidAndGrid' && layout === 'fluid' && hasQuotes) {
-      return 'fluid-quotes';
-    }
-    return 'fluid';
-  }, [layoutType, layout, hasQuotes]);
+  const layoutVariant = layoutType === 'list' ? 'list' : 'grid';
 
   // Generate a combined array of products, quotes and middle sections
   const renderItems = useMemo(() => {
@@ -85,7 +76,7 @@ const ProductsGrid = ({
           shopifyProduct={node}
           layoutType={layoutType}
           className={styles.productCard}
-          overlayDetailsOnMobile={layout === 'fluid'}
+          overlayDetailsOnMobile={false}
           collectionId={sanityCollectionData?.store?.id}
           collectionTitle={sanityCollectionData?.store?.title}
         />
@@ -102,16 +93,11 @@ const ProductsGrid = ({
 
       const quotes = sanityCollectionData?.quotes; // Up to 4 quotes
       const quoteIndex = Object.values(injectQuotesAfterProductCardIndex).indexOf(index);
-      if (layoutType === 'fluidAndGrid' && layout === 'fluid' && hasQuotes && quoteIndex !== -1 && quotes[quoteIndex]) {
-        items.push(<QuoteCard className={styles.productCard} key={`quote-${quoteIndex}`} quote={quotes[quoteIndex]} />);
-      }
 
       // Inject middle sections
       // Add middle sections if this index matches one of our injection points and we have middle sections available
-      const injectMiddleSectionsAfterProductCardIndex = {
-        grid: 7,
-        fluid: 3
-      }[layout];
+      const injectMiddleSectionsAfterProductCardIndex = 7;
+
       if (layoutType === 'fluidAndGrid' && index === injectMiddleSectionsAfterProductCardIndex && sectionsMiddle) {
         items.push(
           <div key="middle-sections" className={styles.middleSections}>
@@ -127,7 +113,7 @@ const ProductsGrid = ({
   return (
     <>
       {layoutType !== 'list' && (
-        <Filters filters={filters} subCollectionFilters={subCollectionFilters} layout={layout} setLayout={setLayout} />
+        <Filters filters={filters} subCollectionFilters={subCollectionFilters} />
       )}
       {shopifyCollectionData?.products?.edges?.length === 0 && (
         <div className={styles.noProducts}>

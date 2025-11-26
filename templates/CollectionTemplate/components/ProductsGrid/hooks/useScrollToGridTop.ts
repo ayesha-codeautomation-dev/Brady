@@ -11,11 +11,9 @@ import { LayoutOption } from '../components/LayoutOptions';
 
 const useScrollToGridTop = ({
   shopifyCollectionData,
-  layout,
   gridId
 }: {
   shopifyCollectionData: GetCollectionByHandleResponse;
-  layout: LayoutOption;
   gridId: string;
 }) => {
   const [firstMount, setFirstMount] = useState(true);
@@ -42,7 +40,7 @@ const useScrollToGridTop = ({
     }
 
     scrollToGridTop();
-  }, [layout]);
+  });
 
   useEffect(() => {
     return () => {

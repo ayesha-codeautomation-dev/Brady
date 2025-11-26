@@ -21,12 +21,10 @@ import styles from './styles.module.scss';
 const Filters = ({
   filters,
   subCollectionFilters,
-  layout,
   setLayout
 }: {
   filters: GetCollectionFiltersByHandleResponse;
   subCollectionFilters: GetCollectionSubCollectionFiltersByIdResponse;
-  layout: LayoutOption;
   setLayout: React.Dispatch<React.SetStateAction<LayoutOption>>;
 }) => {
   const router = useRouter();
@@ -103,9 +101,9 @@ const Filters = ({
             <div className={styles.sortFilter}>
               <SortByDropdown />
             </div>
-            <div className={classNames(styles.layoutFilters, { [styles.hidden]: !filtersHidden })}>
-              <LayoutOptions layout={layout} setLayout={setLayout} />
-            </div>
+            {/* <div className={classNames(styles.layoutFilters, { [styles.hidden]: !filtersHidden })}>
+              <LayoutOptions setLayout={setLayout} />
+            </div> */}
           </div>
         </div>
       </Container>
