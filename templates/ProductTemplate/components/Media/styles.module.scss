@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  .media {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.size {
+    &_centered {
+      .media {
+        //max-width: 224px;
+        max-width: 66.6%;
+
+        @include media-up(tablet) {
+          max-width: 33%;
+        }
+      }
+    }
+
+    &_fullWidth {
+      .media {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

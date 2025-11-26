@@ -1,0 +1,15 @@
+.logo {
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+
+  video {
+    width: 120px;
+    height: auto;
+
+    @include media-up(tablet) {
+      width: 180px;
+    }
+  }
+}

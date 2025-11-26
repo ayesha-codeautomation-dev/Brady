@@ -1,0 +1,83 @@
+.icon {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  svg,
+  path,
+  img {
+    width: 100%;
+    height: auto;
+    shape-rendering: geometricPrecision;
+  }
+}
+
+// --------------------
+// Colors
+// ------------------
+// Colors
+@each $name, $color in $colors {
+  .color_#{$name} {
+    color: $color;
+    fill: $color;
+    border-color: $color;
+    * {
+      fill: $color;
+    }
+  }
+}
+
+// --------------------
+// Sizes
+
+.size_sm {
+  width: 12px;
+  height: 12px;
+
+  @include media-up(md) {
+    width: 14px;
+    height: 14px;
+  }
+
+  @include media-up(lg) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.size_md {
+  width: 16px;
+  height: 16px;
+
+  @include media-up(md) {
+    width: 18px;
+    height: 18px;
+  }
+
+  @include media-up(lg) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.size_lg {
+  width: 24px;
+  height: 24px;
+
+  @include media-up(md) {
+    width: 28px;
+    height: 28px;
+  }
+
+  @include media-up(lg) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.size-fluid {
+  width: 100%;
+  height: 100%;
+}

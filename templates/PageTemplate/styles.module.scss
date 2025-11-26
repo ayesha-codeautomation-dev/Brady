@@ -1,0 +1,7 @@
+.container {
+  padding-top: 140px;
+
+  @include media-up(large-tablet) {
+    padding-top: 180px;
+  }
+}

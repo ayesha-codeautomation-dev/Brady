@@ -1,0 +1,336 @@
+// Keep all your original navigation styles exactly as they were
+.navigationItems {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17.28px;
+  letter-spacing: 0.05em;
+  user-select: none;
+  gap: 8px;
+
+  @include media-up(tablet) {
+    gap: 16px;
+  }
+
+  @include media-up(desktop) {
+    gap: 64px;
+  }
+}
+
+.navigationItem {
+  position: relative;
+  z-index: 1001; // Higher than sidebar to appear above
+
+  &.sidebarOpen {
+    // When sidebar is open, ensure menu items stay visible and interactive
+    pointer-events: auto;
+
+    &.active {
+      .navigationLink {
+        color: var(--navigation-color-hover) !important;
+      }
+
+      .navigationLinkIcon {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.navigationLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 150ms ease;
+  color: var(--navigation-color) !important;
+  position: relative;
+  z-index: 1002;
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+.navigationLinkIcon {
+  width: 9px;
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+.navigationLinkWrapper {
+  display: flex;
+  align-items: center;
+}
+
+// Sidebar Styles - Only add new sidebar styles without changing existing ones
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 28%;
+  height: 100vh;
+  background: white;
+  z-index: 1000; // Lower than navigation items
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  &.sidebarOpen {
+    left: 0;
+
+    .sidebarHeader {
+      animation: slideFromBeyond 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    .sidebarItem {
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: slideInItem 0.4s ease forwards;
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.08 + 0.2}s;
+        }
+      }
+    }
+  }
+
+  &.sidebarAnimating {
+    pointer-events: none;
+  }
+}
+
+.sidebarContent {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+  margin-top: 80px; // Add space for the header navigation
+}
+
+.sidebarHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidebarMainItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navigation-color) !important;
+  // Inherit all the same styles as navigationLink
+  line-height: 17.28px;
+  letter-spacing: 0.05em;
+}
+
+.sidebarMainItemIcon {
+  width: 9px;
+  transform: rotate(-180deg);
+}
+
+.sidebarNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.sidebarItem {
+  opacity: 0;
+}
+
+.sidebarLink {
+  line-height: 26.28px;
+  letter-spacing: 0.05em;
+  color: var(--navigation-color) !important;
+  letter-spacing: 0.05em;
+  transition: color 150ms ease;
+  font-size: small;
+
+  &:hover {
+    color: var(--navigation-color-hover) !important;
+  }
+}
+
+// Overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; // Lower than navigation items but higher than page content
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+// Animations
+@keyframes slideFromBeyond {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(10%);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInItem {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// Remove old subnavigation styles since we're using sidebar now
+.subNavigation {
+  display: none;
+}
+
+// Wrapper for all nested menus
+.menuLevelsWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// Each nested level
+.menuLevel {
+  position: absolute;
+  top: 0;
+  width: 70%; // FULL width of sidebar container
+  height: 100%;
+  background: white;
+  transition: left 0.3s ease;
+  padding: 2rem 1rem;
+  display: flex;
+
+  &.menuLevelActive {
+    z-index: 1002;
+  }
+}
+
+.sidebarItem {
+  margin-bottom: 0.5rem;
+
+  &.active {
+    color: black !important;
+    font-weight: 600;
+  }
+}
+
+.sidebarLinkButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  line-height: 26.28px;
+  letter-spacing: 0.05em;
+  color: var(--navigation-color) !important;
+  transition: color 150ms ease;
+
+  &.active {
+    color: black !important;
+
+    .submenuIcon {
+      opacity: 1; // keep arrow visible when active
+      transform: rotate(0deg);
+    }
+  }
+  &:hover {
+    color: var(--navigation-color-hover) !important;
+    .submenuIcon {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.levelLayout {
+  display: flex;
+  justify-content: space-between; // menu left, image right
+  width: 100%;
+  height: 100%;
+}
+
+.sidebarNavigation {
+  flex: 1; // take remaining space for links
+}
+
+.sidebarNavigation .sidebarItem {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInItem 0.4s ease forwards;
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.08 + 0.2}s; // stagger links
+    }
+  }
+}
+
+.levelImageWrapper {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInImage 0.5s ease forwards;
+  animation-delay: 1s; // after menu links (adjust depending on number of items)
+}
+
+@keyframes slideInImage {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Default arrow state
+.submenuIcon {
+  width: 12px;
+  margin-left: 15px;
+  opacity: 0;
+  transform: rotate(-90deg); // default rotation (hidden)
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.levelImage {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}

@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+  pointer-events: none;
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    pointer-events: all;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

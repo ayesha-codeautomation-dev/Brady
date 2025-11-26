@@ -1,0 +1,17 @@
+.label {
+  text-align: center;
+  display: block;
+  font-family: var(--primary-font), sans-serif;
+  color: var(--brand-black);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19.2px;
+  letter-spacing: 0.06em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  box-sizing: border-box;
+}
+
+.required {
+  color: var(--brand-black);
+}

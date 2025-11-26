@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  padding-bottom: 32px;
+  top: 120px;
+  width: 100%;
+
+  @include media-up(tablet) {
+    padding-bottom: 64px;
+    top: 240px;
+  }
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.items {
+  gap: 8px;
+  padding: 0 8px;
+
+  .item {
+    flex: 0 0 60%;
+    position: relative;
+    aspect-ratio: 3 / 4;
+
+    @include media-up(tablet) {
+      flex: 1;
+    }
+
+    .overlay {
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background-color: var(--brand-ascension-blue-70);
+      opacity: 0;
+      transition: opacity 300ms ease;
+
+      @include media-up(tablet) {
+        padding: 32px;
+      }
+    }
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
+  }
+}

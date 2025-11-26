@@ -1,0 +1,121 @@
+:root {
+  /* Layout */
+  --layout-container-spacing: 24px;
+  --layout-container-max-width: 100vw;
+
+  @media (min-width: 769px) {
+    --layout-container-spacing: 48px;
+  }
+
+  @media (min-width: 1340px) {
+    --layout-container-spacing: 96px;
+  }
+
+  /* Colors */
+  --brand-black-rgb: 20, 20, 32; /* RGB values of #141420 */
+  --brand-white-rgb: 255, 255, 255; /* RGB values of #FFFFFF */
+  --brand-ascension-blue-rgb: 0, 19, 131; /* RGB values of #001383 */
+
+  --brand-black: rgb(var(--brand-black-rgb));
+  --brand-black-70: rgba(var(--brand-black-rgb), 0.7);
+  --brand-black-40: rgba(var(--brand-black-rgb), 0.4);
+  --brand-white: rgb(var(--brand-white-rgb));
+  --brand-white-70: rgba(var(--brand-white-rgb), 0.7);
+  --brand-white-40: rgba(var(--brand-white-rgb), 0.4);
+  --brand-ascension-blue: rgb(var(--brand-ascension-blue-rgb));
+  --brand-ascension-blue-70: rgba(var(--brand-ascension-blue-rgb), 0.7);
+  --brand-ascension-blue-40: rgba(var(--brand-ascension-blue-rgb), 0.4);
+
+  /* Button - Primary */
+  --button-primary-border: black;
+  --button-primary-border-hover: black;
+  --button-primary-background: black;
+  --button-primary-background-hover: black;
+  --button-primary-text: white;
+  --button-primary-text-hover: white;
+
+  /* Font Family */
+  --font-primary-family: var(--primary-font);
+
+  /* Font Weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Size */
+  --font-size-1: 8px;
+  --font-size-2: 12px;
+  --font-size-3: 14px;
+  --font-size-4: 16px;
+  --font-size-5: 24px;
+  --font-size-6: 32px;
+  --font-size-7: 40px;
+  --font-size-8: 48px;
+  --font-size-9: 60px;
+  --font-size-10: 68px;
+  --font-size-11: 72px;
+  --font-size-12: 80px;
+
+  /* Letter Spacing */
+  --letter-spacing-1: 0.01em;
+  --letter-spacing-2: 0.0025em;
+  --letter-spacing-3: 0em;
+  --letter-spacing-4: -0.006em;
+  --letter-spacing-5: -0.006em;
+  --letter-spacing-6: -0.005em;
+  --letter-spacing-7: -0.00625em;
+  --letter-spacing-8: -0.0075em;
+  --letter-spacing-9: -0em;
+  --letter-spacing-10: -0.02em;
+  --letter-spacing-11: 0em;
+  --letter-spacing-12: 0em;
+
+  /* Line Height */
+  --line-height-1: 12px;
+  --line-height-2: 16px;
+  --line-height-3: 20px;
+  --line-height-4: 24px;
+  --line-height-5: 24px;
+  --line-height-6: 28px;
+  --line-height-7: 30px;
+  --line-height-8: 36px;
+  --line-height-9: 36px;
+  --line-height-10: 1.1em;
+  --line-height-11: 80px;
+  --line-height-12: 120px;
+
+  /* Line Height */
+  --primary-button-bg: var(--primary-500);
+  --primary-button-bg-hover: var(--primary-700);
+  --primary-button-border: 0.2px solid var(--primary-500);
+
+  --primary-button-border-hover: var(--primary-700);
+  --primary-button-fg: var(--shades-white);
+  --primary-button-fg-hover: var(--shades-white);
+
+  /* Spacing */
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 6px;
+  --spacing-4: 8px;
+  --spacing-5: 12px;
+  --spacing-6: 16px;
+  --spacing-7: 24px;
+  --spacing-8: 32px;
+  --spacing-9: 40px;
+  --spacing-10: 48px;
+  --spacing-11: 64px;
+  --spacing-12: 160px;
+  --spacing-auto: auto;
+
+  /* Radius */
+  --radius-1: 4px;
+  --radius-2: 6px;
+  --radius-3: 8px;
+  --radius-4: 12px;
+  --radius-5: 16px;
+  --radius-6: 20px;
+  --radius-full: 999px;
+}

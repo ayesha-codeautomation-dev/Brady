@@ -1,0 +1,17 @@
+.link {
+  text-decoration: underline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: inherit;
+
+  &.active {
+    text-decoration: none;
+  }
+}
+
+.text {
+  @include media-up(md) {
+    font-size: 1.25rem;
+  }
+}

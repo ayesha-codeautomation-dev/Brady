@@ -1,0 +1,25 @@
+.container {
+  padding: 64px;
+
+  @include media-up(tablet) {
+    padding: 100px;
+  }
+}
+
+.captcha {
+  margin-bottom: 24px !important;
+  label {
+    font-weight: 300;
+  }
+}
+
+.terms {
+  label {
+    font-weight: 300;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}

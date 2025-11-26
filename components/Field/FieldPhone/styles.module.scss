@@ -1,0 +1,32 @@
+:root {
+  --PhoneInputCountrySelectArrow-color--focus: #616161;
+  --PhoneInputCountryFlag-borderColor--focus: #ffffff;
+}
+
+.container {
+  .input {
+    position: relative;
+
+    &.error {
+      input {
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.2);
+      }
+    }
+  }
+
+  :global(.PhoneInput) {
+    > input {
+      border-radius: 200px;
+      margin: 0;
+    }
+  }
+
+  :global(.PhoneInputCountry) {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    background: $white;
+    padding: 0 2px 0 4px;
+  }
+}

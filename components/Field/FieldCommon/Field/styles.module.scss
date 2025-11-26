@@ -1,0 +1,7 @@
+.container {
+  &.error {
+    .input {
+      border-color: #ea873f !important;
+    }
+  }
+}

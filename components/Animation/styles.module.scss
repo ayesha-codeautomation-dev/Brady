@@ -1,0 +1,18 @@
+.animation {
+  display: block;
+  width: 100%;
+  will-change: transform, opacity;
+}
+
+.slideUp {
+  opacity: 0;
+  transform: translateY(5%);
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,110 @@
+.lineItem {
+  display: flex;
+  border-bottom: 0.2px solid rgba(20, 20, 32, 0.7);
+
+  .image {
+    width: 160px;
+    height: 195px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .details {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .detailsTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .selectedOptions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .selectedOption {
+        display: flex;
+
+        .selectedOptionName {
+          width: 150px;
+        }
+
+        .selectedOptionValue {
+          color: var(--brand-black-70);
+        }
+      }
+    }
+
+    .detailsBottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .quantity {
+        display: flex;
+        align-items: center;
+
+        .quantityAmount {
+          display: block;
+          margin-inline: 24px;
+        }
+        .quantityAdjustButton {
+          width: 10px;
+          height: 10px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .totals {
+    display: flex;
+    flex-direction: column;
+
+    .amount {
+      display: flex;
+      gap: 48px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .checkout {
+    &.disabled {
+      cursor: not-allowed;
+      animation: none;
+      color: var(--brand-black-40) !important;
+      border-color: var(--brand-black-40) !important;
+    }
+  }
+}
+
+.emptyCart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,33 @@
+.youtubeWrapper,
+.vimeoWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  iframe {
+    position: absolute;
+    // setting background color because vimeo embed has weird floating control buttons around it without it
+    background-color: black;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    margin: auto;
+    height: 100%;
+  }
+}
+
+.container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.object-fit {
+  &-contain {
+    object-fit: contain;
+  }
+  &-cover {
+    object-fit: cover;
+  }
+}

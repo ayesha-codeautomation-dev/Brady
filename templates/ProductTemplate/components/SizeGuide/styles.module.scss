@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 32px 48px;
+
+  @include media-up(tablet) {
+    gap: 64px;
+    padding: 48px 64px;
+  }
+}
+
+.guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.headerRow {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.headerCell {
+  padding: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--brand-black-40);
+}
+
+.cell {
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .tableContainer {
+    padding: 0.5rem;
+  }
+
+  .headerCell,
+  .cell {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}

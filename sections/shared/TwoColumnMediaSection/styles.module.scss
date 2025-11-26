@@ -1,0 +1,60 @@
+.container {
+  min-height: 100vh;
+  background-color: white;
+}
+
+.sideA {
+  background-color: var(--brand-ascension-blue);
+  position: relative;
+
+  .image {
+    opacity: 1;
+    transition: opacity 150ms ease-out;
+  }
+
+  //&.hover {
+  //  .image {
+  //    opacity: 0;
+  //  }
+  //}
+
+  .buttonContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: var(--layout-container-spacing);
+  }
+
+  .button {
+    position: sticky;
+    top: 360px;
+  }
+}
+
+.sideB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 128px;
+  padding: 64px;
+  background-color: transparent;
+  transition: background-color 150ms ease-out;
+
+  &.hover {
+    //background-color: var(--brand-ascension-blue);
+
+    .button {
+      color: var(--brand-ascension-blue);
+    }
+  }
+
+  .image {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+  }
+}

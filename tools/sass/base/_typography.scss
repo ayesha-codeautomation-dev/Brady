@@ -1,0 +1,34 @@
+/*=============================================>>>>>
+= Typography Mixins and Variables =
+===============================================>>>>>*/
+
+// Font weight variables
+// NOTE: Use 400 and 700 weights only
+// $font-weight-thin: 100;
+// $font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+// $font-weight-extra-bold: 800;
+// $font-weight-black: 900;
+
+@mixin heading-font() {
+  font-family: var(--heading-font), sans-serif;
+}
+
+@mixin body-font() {
+  font-family: var(--body-font), sans-serif;
+}
+
+@mixin default-type-styles() {
+  @include body-font();
+  font-size: 16px;
+  font-size-adjust: auto;
+  text-align: left;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  text-shadow: 0 0 1px transparent;
+}

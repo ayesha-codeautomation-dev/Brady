@@ -1,0 +1,160 @@
+.headerContainer {
+  pointer-events: none;
+
+  &.behaviour {
+    &-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    &-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+  }
+}
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header {
+  position: relative;
+  pointer-events: all;
+
+  .navigation {
+    display: none;
+  }
+
+  @include media-up(tablet) {
+    padding: 35px 0;
+    .navigation {
+      display: block;
+    }
+  }
+
+  &:hover {
+    .logoText {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .logoMonogram {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--logo-color);
+  transition: color 150ms ease;
+
+  &:hover {
+    color: var(--navigation-color-hover);
+    .logoText {
+      opacity: 1 !important;
+      pointer-events: all;
+      transform: translateY(22px) !important;
+      z-index: 10 !important;
+
+      @include media-up(tablet) {
+        transform: translateY(30px) !important;
+      }
+    }
+
+    .logoMonogram {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: translateX(-50%) translateY(50%) !important;
+      z-index: -1 !important;
+    }
+  }
+
+  .logoText {
+    height: auto;
+    pointer-events: all;
+    opacity: 1;
+    transition:
+      opacity 150ms ease,
+      transform 150ms ease;
+    top: 0;
+    width: 180px;
+    transform: translateY(22px);
+    padding: 32px;
+    margin-top: -32px;
+
+    @include media-up(tablet) {
+      width: 250px;
+      transform: translateY(30px);
+    }
+  }
+
+  .logoMonogram {
+    height: auto;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity 150ms ease,
+      transform 150ms ease;
+    top: 0;
+    left: 50%;
+    width: 23px;
+    transform: translateX(-50%) translateY(50%);
+
+    @include media-up(tablet) {
+      width: 40px;
+      transform: translateX(-50%) translateY(50%);
+    }
+  }
+
+  &.showMonogram {
+    .logoText {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(50%);
+    }
+    .logoMonogram {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(16px);
+    }
+  }
+}
+
+.header {
+  --navigation-color: var(--brand-black-70);
+  --logo-color: var(--brand-black);
+  --navigation-color-hover: var(--brand-ascension-blue);
+  background-color: var(--brand-white);
+  transition: background-color 150ms ease;
+}
+
+:global(body.light) .header {
+  --logo-color: var(--brand-white);
+  --navigation-color: var(--brand-white);
+  --navigation-color-hover: var(--brand-white-70);
+  background-color: transparent;
+}
+
+:global(body.dark) .header {
+  --navigation-color: var(--brand-black-70);
+  --logo-color: var(--brand-black);
+  --navigation-color-hover: var(--brand-ascension-blue);
+  background-color: var(--brand-white);
+}

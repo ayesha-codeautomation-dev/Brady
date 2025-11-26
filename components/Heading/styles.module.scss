@@ -1,0 +1,44 @@
+$max-width: 540px;
+
+.heading {
+  &.none {
+    padding-bottom: 0;
+  }
+
+  &.sm {
+    padding-bottom: 24px;
+  }
+
+  &.md {
+    padding-bottom: 96px;
+  }
+
+  &.invert {
+    @include media(md) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.title {
+  max-width: $max-width;
+}
+
+.subtitle {
+  max-width: $max-width;
+}
+
+.tagline {
+  max-width: $max-width;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 48px;
+}

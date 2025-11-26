@@ -1,0 +1,15 @@
+.card {
+  background-color: $grey-25;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.variant_outline {
+  border: 1px solid red;
+}

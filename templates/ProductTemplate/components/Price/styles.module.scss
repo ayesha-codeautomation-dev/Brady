@@ -1,0 +1,15 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @include media-up(tablet) {
+    gap: 8px;
+    flex-direction: row;
+  }
+
+  .compareAtPrice {
+    color: var(--brand-black-40);
+    text-decoration: line-through;
+  }
+}

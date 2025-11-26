@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 128px;
+  padding: 128px 0;
+  transition: background-color 150ms $ease;
+
+  &.hover {
+    //background-color: var(--brand-ascension-blue);
+
+    .button {
+      color: var(--brand-ascension-blue);
+    }
+  }
+
+  &.layout {
+    &-small {
+      .image {
+        max-width: 360px;
+      }
+    }
+    &-medium {
+      .image {
+        width: 66%;
+
+        @include media-up(tablet) {
+          width: 33%;
+        }
+      }
+    }
+    &-large {
+      .image {
+        width: 100%;
+        padding: 0 var(--layout-container-spacing);
+
+        @include media-up(tablet) {
+          padding: 0 calc(var(--layout-container-spacing) * 2);
+        }
+      }
+    }
+    &-fullWidth {
+      .image {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.buttonImage {
+  width: 100%;
+}
+
+.image {
+  margin: 0 auto;
+  height: auto;
+}

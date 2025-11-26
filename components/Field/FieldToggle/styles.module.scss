@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    color: var(--brand-ascension-blue);
+    :global(.label) {
+      color: var(--brand-ascension-blue) !important;
+    }
+    .label {
+      border-color: var(--brand-ascension-blue);
+    }
+    .input {
+      color: var(--brand-ascension-blue);
+    }
+  }
+
+  &:global(.error) {
+    color: #ea873f;
+
+    :global(.label) {
+      color: #ea873f;
+    }
+  }
+
+  :global(.label) {
+    color: var(--brand-black-70);
+  }
+}
+
+.label {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 400ms ease;
+  border: 1px solid var(--brand-black-70);
+}
+
+.input {
+  display: none;
+}
+
+.input:checked + .label {
+  border-color: var(--brand-ascension-blue);
+  background-color: var(--brand-ascension-blue);
+}
+
+.error {
+  border-color: #ea873f;
+}

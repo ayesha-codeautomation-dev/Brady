@@ -1,0 +1,26 @@
+.loadMoreContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding-block: 8rem;
+}
+
+.noProducts {
+  margin-inline: 24px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //border: 1px dashed var(--brand-black-40);
+}
+
+.middleSections {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  grid-column: 1 / -1 !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+}

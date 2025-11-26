@@ -1,0 +1,40 @@
+.artwork {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding: 42px 0;
+
+  @include media-up(tablet) {
+    gap: 64px;
+    padding: 128px 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  .image {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    @include media-up(tablet) {
+      gap: 64px;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}

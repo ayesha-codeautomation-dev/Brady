@@ -1,0 +1,32 @@
+.select {
+  border-radius: 200px;
+  text-overflow: ellipsis;
+  margin: 0;
+  cursor: pointer;
+  padding: 16px 48px 16px 24px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iI0FEMzA1NyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==');
+  background-repeat: no-repeat, repeat;
+  background-position:
+    right 24px top 50%,
+    0 0;
+  background-size:
+    16px auto,
+    100%;
+  transition: border-color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-color: $primary;
+  }
+
+  &.errors {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.2);
+  }
+
+  &.placeholder {
+    font-weight: 700;
+  }
+}

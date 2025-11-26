@@ -1,0 +1,180 @@
+/*=============================================>>>>>
+= Body font colour =
+===============================================>>>>>*/
+
+// Text Color
+$text-primary: #16192c;
+$text-secondary: #8e9194;
+$text-light: #e1e1e1;
+
+/*=============================================>>>>>
+= Brand colours =
+===============================================>>>>>*/
+$primary-25: #ffede8;
+$primary-50: #ffdbcc;
+$primary-100: #ffc9b1;
+$primary-200: #ffa97a;
+$primary-300: #ff8963;
+$primary-400: #ff694d;
+$primary-500: #ff4a37;
+$primary-600: #d93a2f;
+$primary-700: #b32b27;
+$primary-800: #8d1c1f;
+$primary-900: #661011;
+
+$secondary-25: #e8e8ff;
+$secondary-50: #c9c9ff;
+$secondary-100: #aaa8ff;
+$secondary-200: #7b79ff;
+$secondary-300: #4c4aff;
+$secondary-400: #1d1bff;
+$secondary-500: #0000ff;
+$secondary-600: #0000d9;
+$secondary-700: #0000b3;
+$secondary-800: #00008d;
+$secondary-900: #000066;
+$secondary-1000: #000040;
+
+$tertiary-25: #ecfaf4;
+$tertiary-50: #d9f6e9;
+$tertiary-100: #c6f2de;
+$tertiary-200: #a3e5cd;
+$tertiary-300: #80d8bb;
+$tertiary-400: #5dcba9;
+$tertiary-500: #3abe97;
+$tertiary-600: #31987a;
+$tertiary-700: #27715d;
+$tertiary-800: #1e4b3f;
+$tertiary-900: #142524;
+
+$primary: $primary-500;
+$secondary: $secondary-500;
+$tertiary: $tertiary-500;
+$highlight: #ff5a00;
+
+/*=============================================>>>>>
+= Cards colours =
+===============================================>>>>>*/
+$card-background: #191736;
+$card-border: rgba(219, 216, 245, 0.2);
+
+/*=============================================>>>>>
+= Black/white =
+===============================================>>>>>*/
+$white: #ffffff;
+$black: #000000;
+$off-white: #f2f2f2;
+$off-black: #1a1a1a;
+
+$grey-25: #fcfcfd;
+$grey-50: #f9fafb;
+$grey-100: #f2f4f7;
+$grey-200: #eaecf0;
+$grey-300: #d0d5dd;
+$grey-400: #98a2b3;
+$grey-500: #98a2b3;
+$grey-600: #475467;
+$grey-700: #344054;
+$grey-800: #1d2939;
+$grey-900: #101828;
+
+/*=============================================>>>>>
+= User noticiation colours =
+===============================================>>>>>*/
+$error-25: #fffbfa;
+$error-50: #fef3f2;
+$error-100: #fee4e2;
+$error-200: #fecdca;
+$error-300: #fda29b;
+$error-400: #f97066;
+$error-500: #f04438;
+$error-600: #d92d20;
+$error-700: #b42318;
+$error-800: #912018;
+$error-900: #7a271a;
+$error: $error-700;
+
+$success-25: #f6fef9;
+$success-50: #ecfdf3;
+$success-100: #d1fadf;
+$success-200: #a6f4c5;
+$success-300: #6ce9a6;
+$success-400: #32d583;
+$success-500: #12b76a;
+$success-600: #039855;
+$success-700: #027a48;
+$success-800: #05603a;
+$success-900: #054f31;
+
+$warning-25: #fffcf5;
+$warning-50: #fffaeb;
+$warning-100: #fef0c7;
+$warning-200: #fedf89;
+$warning-300: #fec84b;
+$warning-400: #fdb022;
+$warning-500: #f79009;
+$warning-600: #dc6803;
+$warning-700: #b54708;
+$warning-800: #93370d;
+$warning-900: #7a2e0e;
+
+/*=============================================>>>>>
+= Social colours =
+===============================================>>>>>*/
+$twitter-hex: #00aced;
+$facebook-hex: #3b5998;
+$linkedin-hex: #007bb6;
+$youtube-hex: #bb0000;
+$tumblr-hex: #32506d;
+$instagram-hex: #517fa4;
+$vimeo-hex: #aad450;
+$lastfm-hex: #d51007;
+$google-hex: #4285f4;
+$github-hex: #4078c0;
+
+/*=============================================>>>>>
+= Spacing =
+===============================================>>>>>*/
+$spacing-none: 0px;
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-s: 12px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+
+/*=============================================>>>>>
+= Background =
+===============================================>>>>>*/
+$gradient-primary: linear-gradient(60deg, $primary-400, $primary-100);
+
+/*=============================================>>>>>
+= Font =
+===============================================>>>>>*/
+
+$font-heading: var(--heading-font), sans-serif;
+$font-body: var(--body-font), sans-serif;
+
+/*=============================================>>>>>
+= Colors =
+===============================================>>>>>*/
+
+$colors: (
+  'white': $white,
+  'black': $black,
+  'themeBgDefault': var(--bg-default),
+  'themeBgMuted': var(--bg-muted),
+  'themeBgSubtle': var(--bg-subtle),
+  'themeFgDefault': var(--fg-default),
+  'themeFgMuted': var(--fg-muted),
+  'themeFgSubtle': var(--fg-subtle),
+  'themeColor': var(--fg-default),
+  'primary500': var(--primary-500),
+  'transparent': transparent
+);
+
+/*=============================================>>>>>
+= Global Ease =
+===============================================>>>>>*/
+
+$ease: cubic-bezier(0.4, 0, 0.2, 1); // https://hungermag.com/ easing

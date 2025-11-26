@@ -1,0 +1,32 @@
+.layout {
+  @include media-down(tablet) {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media-down(tablet) {
+    width: 100% !important;
+  }
+
+  @include media-up(tablet) {
+    gap: 64px;
+  }
+}
+
+.placeholder {
+  @include media-down(tablet) {
+    display: none !important;
+    flex: 0 !important;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}

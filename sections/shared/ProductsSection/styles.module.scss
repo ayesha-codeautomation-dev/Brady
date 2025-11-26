@@ -1,0 +1,34 @@
+.section {
+  background-color: white;
+}
+
+.container {
+}
+
+.sectionTitle {
+  margin-bottom: 32px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.product {
+  position: relative;
+
+  .imageLink {
+    display: block;
+    margin-bottom: 16px;
+
+    .image {
+      display: block;
+    }
+  }
+
+  .titleLink {
+    margin-bottom: 4px;
+    text-decoration: none;
+  }
+}

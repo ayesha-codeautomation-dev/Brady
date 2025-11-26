@@ -1,0 +1,38 @@
+.section {
+  &.theme {
+    &-light {
+      background-color: white;
+    }
+    &-dark {
+      background-color: var(--brand-ascension-blue);
+    }
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px;
+  gap: 48px;
+
+  @include media-up(tablet) {
+    gap: 80px;
+  }
+}
+
+.image {
+  width: 160px;
+  height: auto;
+}
+
+.contentContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

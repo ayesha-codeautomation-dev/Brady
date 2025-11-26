@@ -1,0 +1,122 @@
+.filters {
+  padding-block: 6rem;
+
+  .filtersContainer {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    // Left side desktop
+    .filterOptions {
+      @include media-down(tablet) {
+        width: 100%;
+        align-self: flex-start;
+        order: 2;
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      // Collection filters
+      .subCollectionFilter {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 96px;
+
+        .filtersList {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          align-items: flex-start;
+        }
+      }
+
+      .otherFilters {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    // Right side desktop
+    .sorting {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      @include media-down(tablet) {
+        order: 1;
+      }
+
+      .sortFilter {
+        margin-bottom: 64px;
+      }
+
+      // Layout filters
+      .layoutFilters {
+        display: flex;
+        gap: 32px;
+
+        @include media-down(tablet) {
+          &.hidden {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Filter button group
+.filterGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-bottom: 48px;
+
+  @include media-down(tablet) {
+    flex-direction: column;
+  }
+
+  .filterGroupLabel {
+    width: 120px;
+  }
+
+  .filtersList {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+}
+
+// Mobile filters toggle
+.mobileFiltersToggle {
+  display: none !important;
+
+  @include media-down(tablet) {
+    position: relative;
+    display: inline-flex !important;
+    gap: 12px;
+    order: 0;
+  }
+
+  .mobileFiltersToggleIcon {
+    width: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  &.active {
+    .mobileFiltersToggleIcon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.filterButton {
+  &.active {
+    color: var(--brand-ascension-blue);
+  }
+}

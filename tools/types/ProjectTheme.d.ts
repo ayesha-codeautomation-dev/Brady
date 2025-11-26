@@ -1,0 +1,1 @@
+type ProjectTheme = 'light' | 'dark';
