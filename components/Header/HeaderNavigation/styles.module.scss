@@ -18,6 +18,27 @@
   }
 }
 
+.sidebarRight {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 28%;
+  height: 100vh;
+  background: white;
+  z-index: 1000; // Lower than navigation items
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+
+  &.sidebarOpen {
+    transform: translateX(0);
+  }
+}
+
+
 .navigationItem {
   position: relative;
   z-index: 1001; // Higher than sidebar to appear above
@@ -58,6 +79,45 @@
   transform: rotate(0);
   transition: transform 0.3s ease;
 }
+
+button.navigationLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  color: var(--navigation-color) !important;
+  line-height: 19.2px;
+  opacity: 0.7;
+  transition: color 150ms ease;
+  text-decoration: none;
+}
+
+button.navigationLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;        /* gap between text and underline */
+  width: 100%;
+  height: 1px;         /* thinner line */
+  background: var(--navigation-color-hover);
+  transform: scaleX(0); /* start hidden */
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+button.navigationLink:hover {
+  color: var(--navigation-color-hover) !important;
+}
+
+button.navigationLink:hover::after {
+  transform: scaleX(1); /* animate line from left to right */
+}
+
+
 
 .navigationLinkWrapper {
   display: flex;
@@ -267,8 +327,10 @@
       transform: rotate(0deg);
     }
   }
+
   &:hover {
     color: var(--navigation-color-hover) !important;
+
     .submenuIcon {
       opacity: 1;
       transform: rotate(0deg);
@@ -311,6 +373,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -333,4 +396,171 @@
   max-height: 400px;
   object-fit: contain;
   border-radius: 8px;
+}
+
+
+// Contact SideBar
+
+// Ensure contact button is covered by overlay
+.contactOverlay {
+  z-index: 1000; // Same as other overlay
+}
+
+// Contact sidebar specific styles
+.sidebarRight {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 28%;
+  height: 100vh;
+  background: white;
+  z-index: 1001; // Higher than overlay but lower than main nav
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  &.sidebarOpen {
+    right: 0;
+  }
+}
+
+// Contact header with cross button
+.contactHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 150ms ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.closeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+// Link type indicators
+.phoneLink {
+  color: #857f7f !important;
+
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.emailLink {
+  color: #857f7f !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Fix z-index for all overlays and sidebars
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000; // Ensure this is consistent
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+// Ensure navigation items stay above overlays
+.navigationItems {
+  position: relative;
+  z-index: 1002; // Higher than overlays
+}
+
+// When sidebar is open, adjust overlay z-index if needed
+.sidebarOpen+.overlay {
+  z-index: 999;
+}
+
+// Contact sidebar content styling
+.contactSidebarInner {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.contactHeading {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  color: #222;
+}
+
+.contactDescription {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contactGroup {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.contactRow {
+  width: 100%;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.groupTitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.navigationLinkIcon {
+  width: 12px;
+  height: 12px;
+  transition: transform 150ms ease;
 }
